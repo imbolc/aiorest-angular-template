@@ -1,0 +1,8 @@
+{
+  "name": "app",
+  "private": true,
+  "dependencies": {
+    "angular": "~1.2.22",
+    "angular-resource": "~1.2.22"
+  }
+}

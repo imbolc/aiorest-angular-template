@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html lang="en" ng-app='app'>
+    <head>
+        <meta charset="utf-8">
+    </head>
+    <body ng-controller='HelloCtrl'>
+        <h1>{{ greeting }}</h1>
+        <input type="text" ng-model="name" placeholder="Enter a name here">
+
+        <% if cfg.DEBUG %>
+            <script src="/static/bower/angular/angular.js"></script>
+            <script src="/static/bower/angular-resource/angular-resource.js"></script>
+        <% else %>
+            <script src="//ajax.googleapis.com/ajax/libs/angularjs/1.3.0-beta.14/angular.min.js"></script>
+            <script src="//ajax.googleapis.com/ajax/libs/angularjs/1.3.0-beta.14/angular-resource.min.js"></script>
+        <% endif %>
+        <script src="/static/build/app.js"></script>
+    </body>
+</html>

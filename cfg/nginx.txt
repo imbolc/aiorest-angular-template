@@ -1,0 +1,41 @@
+server {
+    listen 80;
+    server_name .%(host)s;
+
+    gzip            on;
+    gzip_min_length 1000;
+    gzip_types      text/plain text/css text/javascript text/json
+                    application/x-javascript application/json;
+    gzip_disable    "msie6";
+    gzip_comp_level 6;
+
+    location ^~ /static/ {
+        root %(root)s/;
+        if ($query_string) {
+            expires max;
+        }
+    }
+
+    location / {
+        root %(root)s/static/build/;
+    }
+    location = /robots.txt {
+        root %(root)s/static/;
+    }
+    location = /favicon.ico {
+        root %(root)s/static/;
+    }
+    location = /google97d9cb297ce73e32.html {
+        root %(root)s/static/;
+    }
+
+    location /api/ {
+        proxy_pass http://127.0.0.1:%(port)s/;
+        proxy_redirect off;
+        proxy_set_header Host $http_host;
+        proxy_set_header X-Real-IP $remote_addr;
+        proxy_set_header X-Scheme $scheme;
+        proxy_set_header X-Forwarded-For $proxy_add_x_forwarded_for;
+    }
+
+}

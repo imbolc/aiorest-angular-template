@@ -1,0 +1,8 @@
+*.py[co]
+/node_modules
+/var
+/cfg/local.py
+/static/build
+/static/bower
+/static/html
+client/cfg.svc.js
