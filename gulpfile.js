@@ -23,8 +23,7 @@ gulp.task('watch', ['js'], function () {
 });
 
 gulp.task('dev_server', shell.task([
-    ('nodemon ./app.py -V --exec "var/env/bin/python"' +
-    // ' --watch "*.py" --watch "templates/*.html"')
+    ('nodemon ./app.py --exec "var/env/bin/python"' +
     ' --ext "py html" --ignore "static"')
 ]));
 
